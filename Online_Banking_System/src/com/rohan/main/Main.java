@@ -48,37 +48,69 @@ public class Main
 					BankingServices bs1 = new BankingServices();
 					System.out.println("Enter Account No. :");
 					long acNo = sc.nextLong();
-					boolean flag = new BankingServices().accExist(acNo);
+					boolean flag = bs1.accExist(acNo);
 					
 					if(flag)
 					{
 						System.out.println("Select the option :");
-						System.out.println("a. Deposit Money \n b. Withdraw Money");
-						String c =sc.nextLine();
-						if(c.equalsIgnoreCase("a"))
+						System.out.println("a. Deposit Money \nb. Withdraw Money");
+						char c =sc.next().charAt(0);
+						if(c=='a')
 						{
 							System.out.println("Enter amount to Deposite :");
 							int bal = sc.nextInt();
-							ah1.setInitialBalance(bal);
-							
+							bs1.depositMoney(acNo, bal);							
 							
 						}
-						else if(c.equalsIgnoreCase("b"))
+						else if(c=='b')
 						{
-							
+							System.out.println("Enter amount to Withdraw :");
+							int amount = sc.nextInt();
+							bs1.withdrawMoney(acNo, amount);
 						}
 						else
 						{
 							System.out.println("Invalid Input.");
 						}
 					}
-					
-					
-					
-			
+					else
+					{
+						System.out.println("Account Not Found.");
+					}
 					break;
-			case 3:break;
-			case 4:	break;
+					
+			case 3: BankingServices bs2 = new BankingServices();
+					System.out.println("Enter Your Account Number :");
+					long senderAccount = sc.nextLong();
+					System.out.println("Enter Account Number Money Send To :");
+					long receiverAccount = sc.nextLong();
+					boolean flag1 = bs2.accExist(senderAccount);
+					boolean flag2 = bs2.accExist(receiverAccount);
+					if(flag1&&flag2)
+					{
+						System.out.println("Enter Amount :");
+						int amt = sc.nextInt();
+						bs2.transferMoney(amt ,senderAccount ,receiverAccount);
+					}
+					else
+					{
+						System.out.println("Account Not Found.");
+					}
+					
+					break;
+			case 4:	System.out.println("Enter Account Number :");	
+					long accNum = sc.nextLong();
+					BankingServices bs3 = new BankingServices();
+					boolean exists = bs3.accExist(accNum);
+					if(exists)
+					{
+						
+					}
+					else
+					{
+						System.out.println("Account Not Found.");
+					}
+					break;
 			case 5:	System.exit(0);
 					break;
 			default : System.out.println("Wrong Input Try again Later.");	

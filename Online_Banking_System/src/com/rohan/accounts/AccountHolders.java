@@ -8,21 +8,7 @@ public class AccountHolders
 	private String address;
 	private String accType;
 	private int balance;
-	private int initialBalance;
-	private int withdrawBal;
-			
-	public int getInitialBalance() {
-		return initialBalance;
-	}
-	public void setInitialBalance(int initialBalance) {
-		this.initialBalance = initialBalance;
-	}
-	public int getWithdrawBal() {
-		return withdrawBal;
-	}
-	public void setWithdrawBal(int withdrawBal) {
-		this.withdrawBal = withdrawBal;
-	}
+	
 	public String getAccName() {
 		return accName;
 	}
