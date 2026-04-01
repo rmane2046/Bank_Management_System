@@ -44,7 +44,7 @@ public class Main
 					bs.acoountCreate(ah);
 					break;
 					
-			case 2: AccountHolders ah1 = new AccountHolders();
+				case 2: /* AccountHolders ah1 = new AccountHolders(); */
 					BankingServices bs1 = new BankingServices();
 					System.out.println("Enter Account No. :");
 					long acNo = sc.nextLong();
@@ -77,6 +77,7 @@ public class Main
 					{
 						System.out.println("Account Not Found.");
 					}
+					
 					break;
 					
 			case 3: BankingServices bs2 = new BankingServices();
@@ -96,7 +97,7 @@ public class Main
 					{
 						System.out.println("Account Not Found.");
 					}
-					
+				
 					break;
 			case 4:	System.out.println("Enter Account Number :");	
 					long accNum = sc.nextLong();
@@ -104,18 +105,23 @@ public class Main
 					boolean exists = bs3.accExist(accNum);
 					if(exists)
 					{
-						
+						bs3.viewTransaction(accNum);
 					}
 					else
 					{
 						System.out.println("Account Not Found.");
 					}
+					
 					break;
+					
 			case 5:	System.exit(0);
 					break;
+					
 			default : System.out.println("Wrong Input Try again Later.");	
 			}
 			
+			
 		}
+		
 	}
 }
